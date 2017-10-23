@@ -10,6 +10,8 @@
     <RepositoryUrl>https://github.com/siof/common.extensions</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>c# .net extensions</PackageTags>
+    <PackageId>siof.Common.Extensions</PackageId>
+    <Version>1.1.0</Version>
   </PropertyGroup>
 
 </Project>
