@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;net452</TargetFrameworks>
+    <Authors>siof</Authors>
+    <Company />
+    <Description>Simple library with additional extension functions for standard classes.</Description>
+    <PackageLicenseUrl>https://github.com/siof/common.extensions/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/siof/common.extensions</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/siof/common.extensions</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>c# .net extensions</PackageTags>
+  </PropertyGroup>
+
+</Project>
