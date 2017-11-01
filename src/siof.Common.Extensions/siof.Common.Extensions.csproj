@@ -11,7 +11,8 @@
     <RepositoryType>git</RepositoryType>
     <PackageTags>c# .net extensions</PackageTags>
     <PackageId>siof.Common.Extensions</PackageId>
-    <Version>1.1.0</Version>
+	<Title>Common.Extensions</Title>
+    <Version>1.1.1</Version>
   </PropertyGroup>
 
 </Project>
