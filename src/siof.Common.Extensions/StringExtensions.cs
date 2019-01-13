@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 
 namespace siof.Common.Extensions
 {
@@ -42,6 +43,16 @@ namespace siof.Common.Extensions
         public static bool IsAlfaNumeric(this string str)
         {
             return str.IfNotNull(strVal => strVal.All(char.IsLetterOrDigit), false);
+        }
+        
+        public static string RemoveFromEnd(this string value, string toRemove)
+        {
+            if (value.IsEmptyOrWhiteSpace() || string.IsNullOrEmpty(toRemove))
+                return value;
+
+            var index = value.LastIndexOf(toRemove, StringComparison.Ordinal);
+
+            return value.Remove(index);
         }
     }
 }
