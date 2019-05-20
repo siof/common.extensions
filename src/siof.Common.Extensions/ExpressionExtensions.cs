@@ -7,8 +7,7 @@ namespace siof.Common.Extensions
     {
         public static string GetPropertyName(this Expression<Func<object>> extension)
         {
-            UnaryExpression unaryExpression = extension.Body as UnaryExpression;
-            MemberExpression memberExpression = unaryExpression != null ?
+            var memberExpression = extension.Body is UnaryExpression unaryExpression ?
                 (MemberExpression)unaryExpression.Operand :
                 (MemberExpression)extension.Body;
 

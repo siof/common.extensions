@@ -7,12 +7,12 @@ namespace siof.Common.Extensions
     {
         public static string ReplaceSafe(this string str, char from, char to)
         {
-            return str.IfNotNull(st => st.Replace(from, to), null);
+            return str.IfNotNull(st => st.Replace(from, to));
         }
 
         public static string ReplaceSafe(this string str, string from, string to)
         {
-            return str.IfNotNull(st => st.Replace(from, to), null);
+            return str.IfNotNull(st => st.Replace(from, to));
         }
 
         public static bool IsEmptyOrWhiteSpace(this string str)
@@ -27,22 +27,22 @@ namespace siof.Common.Extensions
 
         public static string TrimSafe(this string str, params char[] trimChars)
         {
-            return str.IfNotNull(strVal => { return strVal.Trim(trimChars); }, null);
+            return str.IfNotNull(strVal => strVal.Trim(trimChars));
         }
 
         public static string TrimStartSafe(this string str, params char[] trimChars)
         {
-            return str.IfNotNull(strVal => { return strVal.TrimStart(trimChars); }, null);
+            return str.IfNotNull(strVal => strVal.TrimStart(trimChars));
         }
 
         public static string TrimEndSafe(this string str, params char[] trimChars)
         {
-            return str.IfNotNull(strVal => { return strVal.TrimEnd(trimChars); }, null);
+            return str.IfNotNull(strVal => strVal.TrimEnd(trimChars));
         }
 
         public static bool IsAlfaNumeric(this string str)
         {
-            return str.IfNotNull(strVal => strVal.All(char.IsLetterOrDigit), false);
+            return str.IfNotNull(strVal => strVal.All(char.IsLetterOrDigit));
         }
 
         public static bool IsNumber(this string str)
@@ -53,10 +53,7 @@ namespace siof.Common.Extensions
             if (str.StartsWith(".") || str.EndsWith("."))
                 return false;
             
-            if (str.Count(_ => _ == '.') > 1)
-                return false;
-
-            return true;
+            return str.Count(_ => _ == '.') <= 1;
         }
         
         public static string RemoveFromEnd(this string value, string toRemove)

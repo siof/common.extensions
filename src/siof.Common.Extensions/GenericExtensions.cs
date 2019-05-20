@@ -1,4 +1,6 @@
-﻿namespace siof.Common.Extensions
+﻿using System.Linq;
+
+namespace siof.Common.Extensions
 {
     public static class GenericExtensions
     {
@@ -9,30 +11,18 @@
 
         public static bool IsOneOf<T>(this T value, params T[] paramList)
         {
-            if (value != null && paramList != null)
-            {
-                foreach (T elem in paramList)
-                {
-                    if (value.Equals(elem))
-                        return true;
-                }
-            }
+            if (value == null || paramList == null) 
+                return false;
 
-            return false;
+            return paramList.Contains(value);
         }
 
         public static bool IsNotAnyOf<T>(this T value, params T[] paramList)
         {
-            if (value != null && paramList != null)
-            {
-                foreach (T elem in paramList)
-                {
-                    if (value.Equals(elem))
-                        return false;
-                }
-            }
+            if (value == null || paramList == null) 
+                return true;
 
-            return true;
+            return !paramList.Contains(value);
         }
     }
 }

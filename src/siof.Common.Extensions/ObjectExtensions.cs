@@ -4,12 +4,7 @@ namespace siof.Common.Extensions
 {
     public static class ObjectExtensions
     {
-        public static string ToStringSafe(this object obj)
-        {
-            return ToStringSafe(obj, null);
-        }
-
-        public static string ToStringSafe(this object obj, string defaultValue)
+        public static string ToStringSafe(this object obj, string defaultValue = null)
         {
             return obj.IfNotNull(o => o.ToString(), defaultValue);
         }
@@ -22,17 +17,9 @@ namespace siof.Common.Extensions
             return obj;
         }
 
-        public static TResult IfNotNull<TInput, TResult>(this TInput obj, Func<TInput, TResult> evaluator)
+        public static TResult IfNotNull<TInput, TResult>(this TInput obj, Func<TInput, TResult> evaluator, TResult def = default(TResult))
         {
-            return IfNotNull(obj, evaluator, default(TResult));
-        }
-
-        public static TResult IfNotNull<TInput, TResult>(this TInput obj, Func<TInput, TResult> evaluator, TResult def)
-        {
-            if (obj != null)
-                return evaluator(obj);
-
-            return def;
+            return obj != null ? evaluator(obj) : def;
         }
     }
 }

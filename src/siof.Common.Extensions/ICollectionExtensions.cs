@@ -28,7 +28,7 @@ namespace siof.Common.Extensions
                     col.RemoveRange(toRemove);
 
                 return col;
-            }, null);
+            });
         }
     }
 }

@@ -19,8 +19,8 @@ namespace siof.Common.Extensions
             if (array1.Length != array2.Length)
                 return false;
 
-            EqualityComparer<T> comparer = EqualityComparer<T>.Default;
-            for (int i = 0; i < array1.Length; i++)
+            var comparer = EqualityComparer<T>.Default;
+            for (var i = 0; i < array1.Length; i++)
             {
                 if (!comparer.Equals(array1[i], array2[i]))
                     return false;

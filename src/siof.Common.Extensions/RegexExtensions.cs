@@ -12,7 +12,7 @@ namespace siof.Common.Extensions
 
             try
             {
-                Regex.Match("", pattern);
+                _ = Regex.Match("", pattern);
             }
             catch (ArgumentException)
             {

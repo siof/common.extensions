@@ -8,7 +8,7 @@ namespace siof.Common.Extensions
     {
         public static string ToString<T>(this IEnumerable<T> collection)
         {
-            StringBuilder builder = new StringBuilder();
+            var builder = new StringBuilder();
 
             collection.ForEach(element => builder.Append(element.ToString()));
 
@@ -17,7 +17,7 @@ namespace siof.Common.Extensions
 
         public static string ToString<T>(this IEnumerable<T> collection, char separator)
         {
-            StringBuilder builder = new StringBuilder();
+            var builder = new StringBuilder();
 
             collection.ForEach(element => builder.Append(element.ToString()).Append(separator));
 
@@ -26,7 +26,7 @@ namespace siof.Common.Extensions
 
         public static string ToString<T>(this IEnumerable<T> collection, string separator)
         {
-            StringBuilder builder = new StringBuilder();
+            var builder = new StringBuilder();
 
             collection.ForEach(element => builder.Append(element.ToString()).Append(separator));
 
@@ -42,12 +42,12 @@ namespace siof.Common.Extensions
         public static List<List<T>> SplitToList<T>(this IEnumerable<T> collection, uint chunkSize)
         {
             if (chunkSize < 1)
-                throw new ArgumentException("Chunk size must have value greater than 0", "chunkSize");
+                throw new ArgumentException("Chunk size must have value greater than 0", nameof(chunkSize));
 
             return collection.IfNotNull(col =>
             {
-                List<List<T>> result = new List<List<T>>();
-                List<T> currentList = new List<T>();
+                var result = new List<List<T>>();
+                var currentList = new List<T>();
 
                 col.ForEach(element =>
                 {
@@ -64,7 +64,7 @@ namespace siof.Common.Extensions
                     result.Add(currentList);
 
                 return result;
-            }, null);
+            });
         }
     }
 }
