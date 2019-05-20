@@ -44,6 +44,20 @@ namespace siof.Common.Extensions
         {
             return str.IfNotNull(strVal => strVal.All(char.IsLetterOrDigit), false);
         }
+
+        public static bool IsNumber(this string str)
+        {
+            if (!str.IfNotNull(strVal => strVal.All(c => char.IsDigit(c) || c == '.')))
+                return false;
+
+            if (str.StartsWith(".") || str.EndsWith("."))
+                return false;
+            
+            if (str.Count(_ => _ == '.') > 1)
+                return false;
+
+            return true;
+        }
         
         public static string RemoveFromEnd(this string value, string toRemove)
         {
